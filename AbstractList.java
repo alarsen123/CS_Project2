@@ -22,7 +22,7 @@ public abstract class AbstractList<E> implements List<E> {
     // post: returns the value at the given index in the list
     public E get(int index) {
         checkIndex(index);
-        Iterator itr = this.iterator();
+        Iterator<E> itr = this.iterator();
         for (int i=0; i< index ; i++) {
             itr.next();
         }
@@ -34,10 +34,10 @@ public abstract class AbstractList<E> implements List<E> {
       if (size == 0) {
          return "[]";
       } else {
-         Iterator i = this.iterator();
-         String result = "[" + i.next();
-         while(i.hasNext()) {
-            result+=", "+ i.next();
+         Iterator itr = this.iterator();
+         String result = "[" + itr.next();
+         while(itr.hasNext()) {
+            result+=", "+ itr.next();
          }
          result += "]";
          return result;
@@ -48,10 +48,10 @@ public abstract class AbstractList<E> implements List<E> {
     //        value (-1 if not found)
     public int indexOf(E value) {
         int index = 0;
-        Iterator i = this.iterator();
+        Iterator itr = this.iterator();
         // ListNode<E> current = front.next;
-        while (i.hasNext()) {
-            if (i.next().equals(value)) {
+        while (itr.hasNext()) {
+            if (itr.next().equals(value)) {
                 return index;
             }
             index++;
